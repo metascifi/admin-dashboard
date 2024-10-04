@@ -21,6 +21,7 @@
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    position: relative;
   }
   
   img, picture, video, canvas, svg {
@@ -45,11 +46,12 @@
   }
 
 body {
-    height: 100%;
+    min-height: 100%;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: min-content 1fr;
     font-family: Arial, Helvetica, sans-serif;
+    position: relative;
 }
 
 aside {
@@ -64,6 +66,10 @@ aside {
     font-size: var(--sidebar-font-size);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
 }
 
 aside a {
@@ -121,11 +127,16 @@ aside .icon-container {
 }
 
 header {
+  grid-row: 1/2;
   display: grid;
   column-gap: 8%;
   padding: 1.2rem 3.5%;
   grid-template-columns: 3fr 1fr;
   align-items: center;
+  align-self: start;
+  position: sticky;
+  background-color: white;
+  top: 0;
 }
 
 .header-searchbar {
@@ -185,6 +196,7 @@ main {
   background-color: var(--main-background);
   display: grid;
   grid-template-rows: 0fr 2fr;
+  grid-row: 2/3;
 }
 
 .action-panel {
